@@ -1,0 +1,713 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #ffe6ec, #fff5f7);
+
+    color: #333;
+
+    overflow-x: hidden;
+
+    position: relative;
+}
+
+
+/* ================================= */
+/*       PANTALLA DE SORPRESA        */
+/* ================================= */
+
+.sorpresa {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ffe6ec,
+        #fff5f7,
+        #ffe9ef
+    );
+
+    z-index: 10;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+
+.sorpresa.oculta {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.sorpresa-contenido {
+
+    width: 90%;
+
+    max-width: 650px;
+
+    padding: 50px 30px;
+
+    animation: aparecer 1.5s ease;
+
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* Corazón grande */
+
+.corazon-grande {
+
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    animation: latido 1.5s infinite;
+
+}
+
+
+@keyframes latido {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+    }
+
+}
+
+
+/* Texto pequeño */
+
+.sorpresa-pequeno {
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    color: #c94f70;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* Título */
+
+.sorpresa h1 {
+
+    font-size: 48px;
+
+    line-height: 1.2;
+
+    color: #b83258;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* Mensaje */
+
+.mensaje-sorpresa {
+
+    max-width: 500px;
+
+    margin: 0 auto 35px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #777;
+
+}
+
+
+/* Botón sorpresa */
+
+.boton-sorpresa {
+
+    padding: 16px 30px;
+
+    border: none;
+
+    border-radius: 40px;
+
+    background: #b83258;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(184, 50, 88, 0.25);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.boton-sorpresa:hover {
+
+    background: #c94f70;
+
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 12px 30px rgba(184, 50, 88, 0.35);
+
+}
+
+
+/* ================================= */
+/*          CONTENEDOR                */
+/* ================================= */
+
+.contenedor {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    text-align: center;
+
+    padding: 60px 30px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.12);
+
+    position: relative;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+}
+
+
+/* Cuando aparece */
+
+.contenedor.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* ================================= */
+/*          TEXTO PRINCIPAL           */
+/* ================================= */
+
+.pequeno {
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    color: #c94f70;
+
+    margin-bottom: 15px;
+
+}
+
+
+h1 {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    color: #b83258;
+
+}
+
+
+.desde {
+
+    font-size: 18px;
+
+    color: #666;
+
+    margin-bottom: 45px;
+
+}
+
+
+/* ================================= */
+/*              FOTO                  */
+/* ================================= */
+
+.foto-contenedor {
+
+    width: 190px;
+
+    height: 190px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    padding: 6px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b83258,
+            #f3a6b8
+        );
+
+    box-shadow:
+        0 8px 25px rgba(184, 50, 88, 0.25);
+
+    overflow: hidden;
+
+}
+
+
+.foto-contenedor img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+
+}
+
+
+/* ================================= */
+/*             CONTADOR               */
+/* ================================= */
+
+.contador {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.tiempo {
+
+    min-width: 100px;
+
+    padding: 20px 15px;
+
+    background: #fff;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.tiempo:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.tiempo span {
+
+    display: block;
+
+    font-size: 35px;
+
+    font-weight: bold;
+
+    color: #b83258;
+
+}
+
+
+.tiempo small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* ================================= */
+/*          FRASE DINÁMICA            */
+/* ================================= */
+
+.frase-dinamica {
+
+    margin-top: 35px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #b83258;
+
+    font-weight: 500;
+
+}
+
+
+.frase {
+
+    margin-top: 25px;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    color: #777;
+
+}
+
+
+/* ================================= */
+/*             MÚSICA                 */
+/* ================================= */
+
+.boton-musica {
+
+    margin-top: 30px;
+
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #b83258;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.boton-musica:hover {
+
+    background: #c94f70;
+
+    transform: scale(1.05);
+
+}
+
+
+/* ================================= */
+/*         CORAZONES FLOTANTES        */
+/* ================================= */
+
+.corazones {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+.corazon {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    color: #e98ca4;
+
+    font-size: 20px;
+
+    opacity: 0.6;
+
+    animation:
+        subirCorazon linear forwards;
+
+}
+
+
+@keyframes subirCorazon {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: 0.6;
+
+    }
+
+    80% {
+
+        opacity: 0.6;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ================================= */
+/*          DISEÑO CELULAR            */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    .sorpresa-contenido {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .corazon-grande {
+
+        font-size: 55px;
+
+    }
+
+
+    .sorpresa h1 {
+
+        font-size: 35px;
+
+    }
+
+
+    .mensaje-sorpresa {
+
+        font-size: 16px;
+
+    }
+
+
+    .boton-sorpresa {
+
+        font-size: 14px;
+
+        padding: 14px 22px;
+
+    }
+
+
+    .contenedor {
+
+        width: 94%;
+
+        padding: 40px 15px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .pequeno {
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    h1 {
+
+        font-size: 40px;
+
+    }
+
+
+    .foto-contenedor {
+
+        width: 150px;
+
+        height: 150px;
+
+    }
+
+
+    .desde {
+
+        font-size: 16px;
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .contador {
+
+        gap: 10px;
+
+    }
+
+
+    .tiempo {
+
+        min-width: 85px;
+
+        padding: 15px 10px;
+
+    }
+
+
+    .tiempo span {
+
+        font-size: 28px;
+
+    }
+
+
+    .tiempo small {
+
+        font-size: 12px;
+
+    }
+
+
+    .frase-dinamica {
+
+        font-size: 16px;
+
+        padding: 0 5px;
+
+    }
+
+
+    .frase {
+
+        font-size: 16px;
+
+    }
+
+
+    .boton-musica {
+
+        font-size: 14px;
+
+        padding: 11px 20px;
+
+    }
+
+}
